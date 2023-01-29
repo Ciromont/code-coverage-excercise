@@ -1,0 +1,32 @@
+var express = require('express');
+var bodyParser = require('body-parser');
+var adder = require('./services/adder');
+var subtractor = require('./services/subtractor');
+var multiplier = require('./services/multiplier');
+var divider = require('./services/divider');
+var app = require();
+
+
+app.use(bodyParser.urlencoded({ extended:false}));
+app.use(bodyParser.json());
+
+app.get('/add', function (req, res) {
+    res.send(handleCakculatorRequest(adder.add, req.query.numberA, req.query.numberB));
+
+});
+
+app.get('/subtract', function (req, res) {
+    res.send(handleCakculatorRequest(subtractor.subtract, req.query.numberA, req.query.numberB));
+
+});
+
+
+app.get('/multiply', function (req, res) {
+    res.send(handleCakculatorRequest(multiplier.multiple, req.query.numberA, req.query.numberB));
+
+});
+
+app.get('/divide', function (req, res) {
+    res.send(handleCakculatorRequest(divider.divide, req.query.numberA, req.query.numberB));
+
+});
