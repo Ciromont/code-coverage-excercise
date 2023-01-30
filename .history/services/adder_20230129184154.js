@@ -1,5 +1,5 @@
 function adder(){
-    this.add = function (numberA, numberB) {
+    this.add = function(numberA, numberB){
         return numberA + numberB;
     }
 }
